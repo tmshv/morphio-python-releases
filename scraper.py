@@ -14,7 +14,8 @@ def release(html):
   }
 
 
-html = scraperwiki.scrape('http://python.org/downloads')
+page = scraperwiki.scrape('http://python.org/downloads')
+html = lxml.html.fromstring(page)
 releases = list(map(release, html.cssselect('.download-list-widget li')))
 
 for r in releases:
