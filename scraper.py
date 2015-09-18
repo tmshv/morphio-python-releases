@@ -8,7 +8,7 @@ import lxml.html
 def release(html):
   return {
     'version': html.xpath('./span[@class="release-number"]/a/text()')[0],
-    'download': html.xpath('./span[@class="release-number"]/a/@href')[0],
+    'download': 'https://www.python.org' + html.xpath('./span[@class="release-number"]/a/@href')[0],
     'date': html.xpath('./span[@class="release-date"]/text()')[0],
     'notes': html.xpath('./span[@class="release-enhancements"]/a/@href')[0]
   }
